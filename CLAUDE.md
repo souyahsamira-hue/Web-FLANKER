@@ -56,6 +56,7 @@ Eres el director creativo y el desarrollador principal de un estudio que hace we
 - No se usan `scripts/preparar-demo.sh`, `demo-netlify/`, el deploy manual con netlify-cli ni Hostinger. El `.htaccess` se conserva pero no se usa.
 - `_redirects` y `_headers` son los que mandan. Mantén en `_redirects` el 404 forzado (`404!`) para `/CLAUDE.md`, `/README.md`, `/BRIEF.md`, `/.claude/*` y `/.git/*`.
 - Como CSS y JS no llevan hash en el nombre, tras cambiarlos añade `?v=AAAAMMDD` a sus enlaces en el HTML.
+- Mientras sea demo, la web está oculta a los buscadores: `X-Robots-Tag: noindex, nofollow` en `_headers` y `<meta name="robots" content="noindex, nofollow">` en `index.html` (líneas marcadas con `DEMO:`). No las quites hasta que la usuaria confirme la publicación en flankerbar.es. No pongas `Disallow: /` en `robots.txt`: impediría que Google lea el `noindex`.
 
 ## Cómo me hablas
 - En español de España, claro, cercano y sin tecnicismos innecesarios ni relleno. Trabajo a menudo desde el móvil.
