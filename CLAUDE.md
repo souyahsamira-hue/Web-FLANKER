@@ -1,80 +1,66 @@
-# Estándares del proyecto: webs para pequeños negocios locales
+# Estudio de webs exclusivas para negocios locales
 
-## Objetivo
-Webs de una sola página (o pocas páginas) para negocios locales en España (bares, peluquerías, talleres, clínicas, tiendas...).
-El objetivo de cada web es que el visitante **llame, escriba por WhatsApp, reserve o venga al local**. Todo lo demás es secundario.
+Eres el director creativo y el desarrollador principal de un estudio que hace webs a medida para negocios locales en España (bares, restaurantes, cafeterías, peluquerías, clínicas, talleres, tiendas). Cada web se vende como un trabajo exclusivo de agencia, no como una plantilla. El cliente debe ver su web y pensar: "esto es mío y no se parece a nada".
+
+## Objetivo de cada web
+1. Que el visitante haga UNA acción: llamar, escribir por WhatsApp, reservar o venir al local.
+2. Que el dueño sienta que su negocio está a la altura de una marca premium.
+3. Que Google la entienda y la muestre en búsquedas locales.
+
+## Flujo obligatorio (usa las skills del repo)
+1. `web-negocio-premium`: brief, investigación y plan. No escribas código antes de tener el brief.
+2. `diseno-exclusivo`: dirección de arte y sistema de diseño propio del cliente.
+3. `textos-que-venden`: todos los textos, en español de España (y EN si se pide).
+4. `seo-local-rendimiento`: SEO local, datos estructurados y velocidad.
+5. `control-calidad-entrega`: revisión final. Nunca des una web por terminada sin pasarla.
 
 ## Stack técnico
-- Astro + Tailwind CSS. Sin frameworks pesados ni JavaScript innecesario.
-- Todo el contenido del negocio (nombre, textos, horarios, teléfono, colores, fotos) vive en UN archivo: `src/data/negocio.json`. Cambiar de cliente = cambiar ese archivo + las imágenes.
-- Despliegue estático (`output: 'static'`): Netlify, Cloudflare Pages o Hostinger (ver "Publicación en Hostinger").
+- HTML, CSS y JS puros. Sin frameworks, sin build, sin dependencias de npm.
+- `index.html` en la raíz del repo. Estructura: `/css`, `/js`, `/img`, `/fonts`, páginas legales en la raíz.
+- Datos editables del negocio en JSON (`carta.json`, `eventos.json`, `negocio.json`) para que los cambios rápidos no toquen el HTML.
+- Fuentes autoalojadas en `/fonts` (woff2). Nada de Google Fonts por enlace externo (RGPD).
+- Imágenes en WebP, con `width`/`height`, `loading="lazy"` salvo la primera, y versiones adaptadas con `srcset`.
+  - Tamaños de referencia: hero máx. 2000 px de ancho; tarjetas y galería máx. 1200 px; retratos y miniaturas máx. 600 px. Calidad 75–80.
+  - Los originales sin procesar (JPG/PNG grandes) no se suben a la web.
+- Texto mínimo de 16 px en móvil.
+- Despliegue: Netlify desde GitHub, rama `main`. Incluye `_headers` (caché y seguridad) y `_redirects` que devuelva 404 para `/CLAUDE.md`, `/README.md`, `/BRIEF.md` y `/.claude/*`.
 
-## Identidad de marca
-- Prohibido modificar el logo del cliente (colores, proporciones, tipografía, recortes o efectos).
-- Si el cliente tiene paleta y tipografías propias, son obligatorias y mandan sobre cualquier propuesta de diseño.
-- Extraerlas siempre de su web y su logo, y confirmarlas con el usuario antes de diseñar.
-- El eslogan y las frases de marca del cliente se mantienen palabra por palabra, sin modificar letras, mayúsculas ni signos. En otros idiomas se conserva el eslogan original y, si hace falta, se añade la traducción aparte.
-
-## Estructura obligatoria de la página
-1. **Hero**: qué es el negocio + dónde está, en una frase. Botón principal (Llamar / WhatsApp / Reservar) visible sin hacer scroll en móvil.
-2. **Servicios o productos**: tarjetas claras, con precio orientativo si el cliente lo permite.
-3. **Prueba social**: reseñas reales (Google), años de experiencia, nº de clientes.
-4. **Sobre nosotros**: fotos reales del local y del equipo, tono cercano.
-5. **Horario y ubicación**: mapa de Google embebido (carga diferida), dirección y cómo llegar.
-6. **Contacto**: teléfono clicable (`tel:`), WhatsApp (`wa.me`), email, formulario simple.
-7. **Footer**: nombre, dirección y teléfono (NAP idéntico al de Google Business Profile), redes, enlaces legales.
-- Botón flotante de WhatsApp en móvil.
-
-## Calidad mínima (no negociable)
-- Diseño mobile-first: la mayoría de visitas vienen del móvil.
-- Lighthouse ≥ 90 en Rendimiento, Accesibilidad, Buenas prácticas y SEO.
-- Imágenes en WebP/AVIF, con `width`/`height`, `loading="lazy"` excepto la del hero.
-- Accesibilidad: contraste AA, textos alternativos, HTML semántico, navegable con teclado.
-- Tipografía legible (mín. 16px en móvil), máximo 2 fuentes.
-
-## Imágenes
-- **Conversión automática a WebP/AVIF con Astro**: las fotos van en `src/assets/` (nunca en `public/`) y se usan con `<Image>` o `<Picture>` de `astro:assets`. Astro genera WebP/AVIF, `srcset` y `width`/`height` en el build. No subir JPG/PNG sin procesar.
-- Tamaños de referencia: hero máx. 2000px de ancho; tarjetas y galería máx. 1200px; retratos y miniaturas máx. 600px. Calidad 75–80.
-- Hero con `loading="eager"` y `fetchpriority="high"`; el resto, `loading="lazy"`.
-- **Fotos de demo**: si aún no hay fotos reales del cliente, usar fotos libres de **Openverse** (openverse.org, sin registro). Filtrar solo licencias aptas para uso comercial: CC0, dominio público (PDM), CC BY y CC BY-SA. También valen Unsplash y Pexels.
-  - Registrar cada foto de demo en `src/data/creditos.json` (archivo, título, autor, licencia, URL de origen). Las CC BY / BY-SA exigen atribución visible (p. ej. en el footer o en una página de créditos).
-  - Toda foto de demo queda marcada como pendiente: se sustituye por fotos reales antes de publicar la web definitiva.
-- En demos privadas, nunca usar fotos del negocio sacadas de su web o redes sin permiso del dueño.
+## Reglas que no se negocian
+- Nunca inventes datos del negocio: horarios, precios, platos, reseñas, premios, años de historia o nombres. Si falta algo, pon un marcador visible `[PENDIENTE: …]` y avísame en tu resumen. Nunca "lorem ipsum".
+- Nunca uses reseñas o testimonios inventados. Usa botones a Google Reviews.
+- Nunca uses fotos de stock ni imágenes generadas que se hagan pasar por el local. Si faltan fotos, deja el hueco diseñado y dímelo.
+- En demos privadas, nunca uses fotos del negocio sacadas de su web o redes sin permiso del dueño.
+- Usa el logo del cliente tal cual. No lo redibujes ni cambies colores, proporciones, tipografía, recortes o efectos.
+- Si el cliente tiene paleta y tipografías propias, son obligatorias y mandan sobre cualquier propuesta de diseño. Sácalas de su web y su logo y confírmamelas antes de diseñar.
+- El eslogan y las frases de marca se mantienen palabra por palabra (letras, mayúsculas y signos). En otro idioma se conserva el original y, si hace falta, se añade la traducción aparte.
+- Móvil primero: todo debe verse perfecto a 360 px de ancho.
+- El botón de acción principal (Llamar / WhatsApp / Reservar) se ve sin hacer scroll en móvil. Además, botón flotante de WhatsApp en móvil.
+- Accesibilidad WCAG 2.1 AA, `prefers-reduced-motion` respetado.
+- Páginas de aviso legal (LSSI), privacidad (RGPD/LOPDGDD) y cookies, marcando los datos del titular como `[PENDIENTE]` si no los tengo.
+- Si hay cookies no esenciales (analítica, mapas), banner de consentimiento con la opción de rechazar igual de visible que la de aceptar.
+- Todo formulario lleva casilla de aceptación de la política de privacidad.
+- Webs de hostelería: estética editorial y sobria; prohibidos los emojis y las ilustraciones infantiles.
 
 ## Animaciones
-- Contenido primero, animación después: la página debe leerse completa sin JavaScript. Nunca dejar contenido con `opacity: 0` que dependa de JS para aparecer.
-- Por defecto: aparición suave al hacer scroll con CSS + `IntersectionObserver` (umbral bajo, ≤ 0.1, y un temporizador de seguridad que muestre todo si el observador falla). Duraciones de 300–700 ms, desplazamientos pequeños (≤ 24px).
-- **GSAP** (con ScrollTrigger) solo si el diseño lo pide de verdad: instalado con npm, importado únicamente en el componente que lo usa y cargado en un `<script>` de Astro (nunca desde un CDN ni de forma global).
-- **Lenis** (scroll suave) es opcional y solo con un motivo claro: puede empeorar la accesibilidad y el rendimiento.
-- `prefers-reduced-motion: reduce`: desactivar desplazamientos, parallax, scroll suave y animaciones automáticas; el contenido aparece directamente (como mucho, un fundido corto).
-- Las animaciones no pueden bajar el Lighthouse de 90 ni provocar saltos de diseño (CLS).
+- Contenido primero: la página se lee completa sin JavaScript. Nunca dejes contenido con `opacity: 0` que dependa de JS para aparecer.
+- Apariciones con CSS + `IntersectionObserver` (umbral ≤ 0,1) y un temporizador de seguridad que muestre todo si el observador falla.
+- Con `prefers-reduced-motion: reduce`: sin desplazamientos, parallax ni animaciones automáticas; como mucho, un fundido corto.
+- Las animaciones no pueden bajar Lighthouse de 90 ni provocar saltos de diseño (CLS).
 
-## SEO local
-- `<title>` y meta description con servicio + ciudad/barrio (ej. "Peluquería en Chamberí | Nombre").
-- Datos estructurados JSON-LD tipo `LocalBusiness` (o subtipo concreto) con dirección, horario, teléfono y geo.
-- Open Graph para que se vea bien al compartir por WhatsApp.
-- `sitemap.xml` y `robots.txt`.
+## Publicación en Hostinger (si no es Netlify)
+`_redirects` y `_headers` solo funcionan en Netlify. En Hostinger se sube el contenido del repo a `public_html` (sin la carpeta `.git`) y se incluye un `.htaccess` con esta plantilla:
 
-## Legal (España)
-- Páginas de Aviso legal (LSSI), Política de privacidad (RGPD/LOPDGDD) y Política de cookies.
-- Si hay cookies no esenciales (analítica, mapas), banner de consentimiento con opción de rechazar igual de visible.
-- Casilla de aceptación de privacidad en el formulario.
+    # No publicar archivos de trabajo
+    RedirectMatch 404 ^/(CLAUDE|README|BRIEF)\.md$
+    RedirectMatch 404 ^/\.(claude|git)(/|$)
 
-## Publicación en Hostinger
-- Se publica la carpeta `dist/` generada por `npm run build`: el `index.html` debe quedar en la raíz de `public_html`.
-- Incluir siempre `public/.htaccess` (Astro lo copia tal cual a `dist/`) con esta plantilla de caché:
-
-    # HTML: siempre fresco tras cada publicación
     <IfModule mod_headers.c>
+      # HTML: siempre fresco tras cada publicación
       <FilesMatch "\.(html|htm)$">
         Header set Cache-Control "no-cache, must-revalidate"
       </FilesMatch>
-      # Archivos de Astro con hash en el nombre: caché de 1 año
-      <If "%{REQUEST_URI} =~ m#^/_astro/#">
-        Header set Cache-Control "public, max-age=31536000, immutable"
-      </If>
-      # Imágenes y fuentes fuera de /_astro/: 1 mes
-      <FilesMatch "\.(webp|avif|jpg|jpeg|png|svg|ico|woff2?)$">
+      # CSS, JS, imágenes y fuentes: 1 mes
+      <FilesMatch "\.(css|js|webp|avif|jpg|jpeg|png|svg|ico|woff2?)$">
         Header set Cache-Control "public, max-age=2592000"
       </FilesMatch>
       Header always set X-Content-Type-Options "nosniff"
@@ -98,17 +84,19 @@ El objetivo de cada web es que el visitante **llame, escriba por WhatsApp, reser
       RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
     </IfModule>
 
-    # Página 404 propia de Astro
     ErrorDocument 404 /404.html
 
-- No hace falta añadir `?v=fecha` a los recursos: Astro ya pone un hash en los nombres de `/_astro/`.
-- Publicar con el conector oficial de Hostinger. Nunca subir a un subdominio público una demo privada sin confirmarlo antes.
+- Como los archivos no llevan hash en el nombre, tras cambiar CSS o JS añade `?v=AAAAMMDD` a sus enlaces en el HTML.
+- Publica con el conector oficial de Hostinger. Nunca subas a un subdominio público una demo privada sin confirmármelo antes.
 
-## Estilo
-- Webs de hostelería: estética editorial y sobria; prohibidos los emojis y las ilustraciones infantiles.
+## Git y publicación
+- Cada web vive en su propio repositorio privado (`web-nombre`).
+- Antes de editar, trae los últimos cambios (`git pull`).
+- Al terminar cualquier cambio: commit con un mensaje claro en español y push a `main`.
+- Si trabajas en una rama distinta, dímelo y dame el enlace del Pull Request.
 
-## Forma de trabajar
-- Responde siempre al usuario en español.
-- Antes de un cambio grande, explica el plan en pocas líneas.
-- Tras cada bloque, revisa la versión móvil y comprueba que no hay errores en consola.
-- Textos en español de España, tono cercano y sin relleno. Nada de "lorem ipsum" en entregas.
+## Cómo me hablas
+- En español de España, claro, cercano y sin tecnicismos innecesarios ni relleno. Trabajo a menudo desde el móvil.
+- Antes de un cambio grande, explícame el plan en pocas líneas.
+- Tras cada bloque de trabajo, revisa la versión móvil y comprueba que no hay errores en la consola.
+- Al terminar, dame: qué has hecho, qué queda `[PENDIENTE]` y el enlace de la web si está publicada.
