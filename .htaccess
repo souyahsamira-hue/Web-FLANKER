@@ -1,4 +1,10 @@
 # Flanker Bar · caché y cabeceras (Hostinger / Apache)
+
+# No publicar archivos de trabajo
+RedirectMatch 404 ^/(CLAUDE|README|BRIEF)\.md$
+RedirectMatch 404 ^/\.(claude|git)(/|$)
+RedirectMatch 404 ^/\.gitignore$
+
 <IfModule mod_headers.c>
   # HTML y datos editables: siempre frescos tras cada publicación
   <FilesMatch "\.(html|htm|json)$">

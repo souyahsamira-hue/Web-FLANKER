@@ -1,0 +1,6 @@
+# Netlify · archivos de trabajo que no se publican (el "!" fuerza la regla aunque el archivo exista)
+/CLAUDE.md   /404.html  404!
+/README.md   /404.html  404!
+/BRIEF.md    /404.html  404!
+/.claude/*   /404.html  404!
+/.git/*      /404.html  404!
