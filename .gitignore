@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Vídeo del hero: se sube aparte cuando llegue
+video/*.mp4

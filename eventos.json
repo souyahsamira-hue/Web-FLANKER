@@ -1,0 +1,26 @@
+{
+  "_instrucciones": "Añade cada noche de música o flamenco con fecha (AAAA-MM-DD) y hora. La web solo muestra las que aún no han pasado, ordenadas por fecha. 'enlace' es opcional (publicación de Instagram).",
+  "eventos": [
+    {
+      "fecha": "2026-11-14",
+      "hora": "18:45",
+      "titulo": { "es": "D'Jarana en directo", "en": "D'Jarana live" },
+      "descripcion": { "es": "Flankerío con @djarana_marbella. ¿Tenéis ganas de jarana?", "en": "A Flankerío night with @djarana_marbella." },
+      "enlace": "https://www.instagram.com/barflanker/reel/DfetNLEMRLV/"
+    },
+    {
+      "fecha": "2026-10-31",
+      "hora": "20:00",
+      "titulo": { "es": "Un Flankerío de miedo: Laura González en vivo", "en": "A spooky Flankerío: Laura González live" },
+      "descripcion": { "es": "Especial Halloween.", "en": "Halloween special." },
+      "enlace": "https://www.instagram.com/barflanker/reel/DfEzuD2NZjX/"
+    },
+    {
+      "fecha": "2026-10-09",
+      "hora": "20:00",
+      "titulo": { "es": "Vuelve el Flankerío: Dani Márquez en vivo", "en": "Flankerío is back: Dani Márquez live" },
+      "descripcion": { "es": "Dani Márquez vuelve a casa.", "en": "Dani Márquez comes home." },
+      "enlace": "https://www.instagram.com/barflanker/p/DeGyGTTNxu5/"
+    }
+  ]
+}

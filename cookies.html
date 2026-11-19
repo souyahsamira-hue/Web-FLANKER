@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de cookies | Flanker Bar</title>
+  <meta name="description" content="Qué cookies y almacenamiento local usa la web de Flanker Bar y cómo gestionarlos.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://flankerbar.es/cookies.html">
+  <meta name="theme-color" content="#455F3E">
+  <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="legal-page">
+  <header class="legal-head">
+    <div class="container">
+      <a href="index.html" aria-label="Flanker Bar, volver al inicio"><img src="img/logo-flanker-blanco.webp" alt="Flanker" width="580" height="123"></a>
+      <a href="index.html">Volver a la web</a>
+    </div>
+  </header>
+  <main class="container legal">
+    <h1>Política de cookies</h1>
+    <p class="updated">Última actualización: 12 de noviembre de 2026</p>
+
+    <h2>1. Resumen</h2>
+    <p>Esta web no instala cookies propias, ni de analítica ni de publicidad. Las fuentes tipográficas se sirven desde nuestro propio servidor. Solo el mapa de Google Maps, si decides cargarlo, instala cookies de terceros.</p>
+
+    <h2>2. Almacenamiento local (técnico)</h2>
+    <p>Guardamos en tu navegador dos preferencias, que no se envían a ningún servidor y no requieren consentimiento por ser necesarias para lo que pides:</p>
+    <table>
+      <thead><tr><th scope="col">Nombre</th><th scope="col">Para qué</th><th scope="col">Duración</th></tr></thead>
+      <tbody>
+        <tr><td>flanker-lang</td><td>Recordar el idioma elegido (español o inglés)</td><td>Hasta que borres los datos del navegador</td></tr>
+        <tr><td>flanker-mapa</td><td>Recordar si aceptaste o rechazaste cargar el mapa</td><td>Hasta que borres los datos del navegador</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Cookies de terceros: Google Maps</h2>
+    <p>El mapa de la sección «Contacto y ubicación» lo sirve Google Ireland Limited. Solo se carga si pulsas «Cargar mapa» o «Aceptar». En ese momento Google puede instalar cookies para el funcionamiento del mapa, sus preferencias y su análisis. Más información en la <a href="https://policies.google.com/technologies/cookies?hl=es" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
+
+    <h2>4. Cómo cambiar tu elección</h2>
+    <p>Puedes retirar tu consentimiento al mapa con este botón; la próxima vez que visites la web volveremos a preguntarte.</p>
+    <p><button type="button" class="btn btn--dark btn--small" id="reset-consent">Retirar consentimiento del mapa</button> <span id="reset-ok" role="status"></span></p>
+    <p>También puedes borrar las cookies y los datos de sitios desde la configuración de tu navegador (Chrome, Safari, Firefox o Edge).</p>
+
+    <h2>5. Enlaces externos</h2>
+    <p>Los enlaces a Instagram, WhatsApp y Google abren esos servicios, que aplican sus propias políticas de cookies.</p>
+  </main>
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <p>© 2026 Flanker Bar</p>
+      <p><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('reset-consent').addEventListener('click', function () {
+      try { localStorage.removeItem('flanker-mapa'); } catch (e) {}
+      document.getElementById('reset-ok').textContent = 'Hecho: el mapa no se cargará hasta que vuelvas a aceptarlo.';
+    });
+  </script>
+</body>
+</html>

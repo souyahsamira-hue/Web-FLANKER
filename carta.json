@@ -1,0 +1,68 @@
+{
+  "_instrucciones": "Edita aquí la carta. Cada plato lleva nombre y descripción en español (es) e inglés (en), precio y alérgenos. Precio '—' = pendiente de confirmar con el dueño. Los alérgenos válidos son las claves de 'alergenos'. La 'imagen' de cada categoría es opcional (nombre base de un archivo de /img).",
+  "actualizada": "2026-11-12",
+  "alergenosConfirmados": false,
+  "alergenos": {
+    "gluten":   { "es": "Gluten",   "en": "Gluten" },
+    "leche":    { "es": "Lácteos",  "en": "Milk" },
+    "huevo":    { "es": "Huevo",    "en": "Egg" },
+    "pescado":  { "es": "Pescado",  "en": "Fish" },
+    "moluscos": { "es": "Moluscos", "en": "Molluscs" },
+    "mostaza":  { "es": "Mostaza",  "en": "Mustard" },
+    "sulfitos": { "es": "Sulfitos", "en": "Sulphites" }
+  },
+  "categorias": [
+    {
+      "id": "picar",
+      "nombre": { "es": "Para picar", "en": "To share" },
+      "imagen": { "base": "tartar-tuetano", "w": 720, "h": 960, "alt": { "es": "Steak tartar servido sobre tuétano asado, con regañás, encima de papel de periódico", "en": "Steak tartare served on roasted bone marrow with crackers, on newspaper" } },
+      "platos": [
+        { "nombre": { "es": "Patatas bravas", "en": "Patatas bravas" }, "descripcion": { "es": "Patatas fritas con nuestra salsa brava.", "en": "Fried potatoes with our spicy brava sauce." }, "precio": "—", "alergenos": ["gluten"] },
+        { "nombre": { "es": "Patatas arrieras", "en": "Patatas arrieras" }, "descripcion": { "es": "Patatas fritas al estilo arriero.", "en": "Fried potatoes, traditional arriero style." }, "precio": "—", "alergenos": [] },
+        { "nombre": { "es": "Nachos con queso", "en": "Nachos with cheese" }, "descripcion": { "es": "Totopos con queso fundido.", "en": "Tortilla chips with melted cheese." }, "precio": "—", "alergenos": ["leche"] },
+        { "nombre": { "es": "Huevos rotos con atún", "en": "Broken eggs with tuna" }, "descripcion": { "es": "Patatas fritas, huevo de yema líquida y atún.", "en": "Fried potatoes, runny-yolk egg and tuna." }, "precio": "—", "alergenos": ["huevo", "pescado"] },
+        { "nombre": { "es": "Queso de cabra con miel de caña", "en": "Goat's cheese with cane honey" }, "descripcion": { "es": "Queso de cabra templado con miel de caña.", "en": "Warm goat's cheese with sugar-cane honey." }, "precio": "—", "alergenos": ["leche"] },
+        { "nombre": { "es": "Calamares fritos", "en": "Fried squid" }, "descripcion": { "es": "Calamar rebozado y frito al momento.", "en": "Battered squid, fried to order." }, "precio": "—", "alergenos": ["moluscos", "gluten"] },
+        { "nombre": { "es": "Steak tartar con tuétano asado", "en": "Steak tartare with roasted bone marrow" }, "descripcion": { "es": "Uno de los imprescindibles de la nueva carta.", "en": "One of the must-haves on our new menu." }, "precio": "—", "alergenos": ["huevo", "mostaza", "gluten"] }
+      ]
+    },
+    {
+      "id": "tostas",
+      "nombre": { "es": "Tostas y brioches", "en": "Toasts & brioches" },
+      "imagen": { "base": "tosta-soplete", "w": 720, "h": 899, "alt": { "es": "Tosta de lomo de orza dorándose con soplete", "en": "Cured pork loin toast being torched" } },
+      "platos": [
+        { "nombre": { "es": "Tosta de la casa", "en": "House toast" }, "descripcion": { "es": "La tosta que firma Flanker.", "en": "Flanker's signature toast." }, "precio": "—", "alergenos": ["gluten"] },
+        { "nombre": { "es": "Brioche de atún", "en": "Tuna brioche" }, "descripcion": { "es": "Pan brioche tierno relleno de atún.", "en": "Soft brioche bun filled with tuna." }, "precio": "—", "alergenos": ["gluten", "huevo", "leche", "pescado"] },
+        { "nombre": { "es": "Brioche de carrillada", "en": "Pork cheek brioche" }, "descripcion": { "es": "Carrillada melosa en pan brioche.", "en": "Slow-cooked pork cheek in a brioche bun." }, "precio": "—", "alergenos": ["gluten", "huevo", "leche", "sulfitos"] }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "nombre": { "es": "Pizzas", "en": "Pizzas" },
+      "imagen": { "base": "equipo-cocina", "w": 720, "h": 1280, "alt": { "es": "El equipo de cocina de Flanker, en blanco y negro", "en": "Flanker's kitchen team, in black and white" } },
+      "platos": [
+        { "nombre": { "es": "Pizza casera", "en": "Homemade pizza" }, "descripcion": { "es": "Masa hecha en casa.", "en": "Made with our own dough." }, "precio": "—", "alergenos": ["gluten", "leche"] },
+        { "nombre": { "es": "Pizza de jalapeño", "en": "Jalapeño pizza" }, "descripcion": { "es": "Con el punto picante del jalapeño.", "en": "With a kick of jalapeño." }, "precio": "—", "alergenos": ["gluten", "leche"] }
+      ]
+    },
+    {
+      "id": "postres",
+      "nombre": { "es": "Postres", "en": "Desserts" },
+      "imagen": { "base": "chef-terraza", "w": 720, "h": 1100, "alt": { "es": "Cocinero de Flanker presentando un plato en la terraza", "en": "Flanker chef presenting a dish on the terrace" } },
+      "platos": [
+        { "nombre": { "es": "Tarta de queso", "en": "Cheesecake" }, "descripcion": { "es": "Para cerrar como se merece.", "en": "The right way to finish." }, "precio": "—", "alergenos": ["leche", "huevo", "gluten"] }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "nombre": { "es": "Bebidas", "en": "Drinks" },
+      "imagen": { "base": "terraza-cervezas", "w": 720, "h": 1280, "alt": { "es": "Cañas de cerveza sobre una mesa de la terraza, con clientes de fondo", "en": "Glasses of draught beer on a terrace table, with guests behind" } },
+      "platos": [
+        { "nombre": { "es": "Estrella Galicia de tanque", "en": "Estrella Galicia tank beer" }, "descripcion": { "es": "Cerveza de tanque, servida en el propio local.", "en": "Unpasteurised tank beer, poured right here." }, "precio": "—", "alergenos": ["gluten"] },
+        { "nombre": { "es": "Vinos", "en": "Wines" }, "descripcion": { "es": "Tintos, blancos y rosados por copa o botella.", "en": "Reds, whites and rosés by the glass or bottle." }, "precio": "—", "alergenos": ["sulfitos"] },
+        { "nombre": { "es": "Gin tonics", "en": "Gin & tonics" }, "descripcion": { "es": "Bien servidos, como tienen que ser.", "en": "Properly poured, as they should be." }, "precio": "—", "alergenos": [] },
+        { "nombre": { "es": "Copas", "en": "Spirits & mixed drinks" }, "descripcion": { "es": "Para alargar la noche.", "en": "To make the night last." }, "precio": "—", "alergenos": [] }
+      ]
+    }
+  ]
+}

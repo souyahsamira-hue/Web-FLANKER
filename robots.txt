@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flankerbar.es/sitemap.xml
