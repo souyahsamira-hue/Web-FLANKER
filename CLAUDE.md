@@ -47,53 +47,15 @@ Eres el director creativo y el desarrollador principal de un estudio que hace we
 - Con `prefers-reduced-motion: reduce`: sin desplazamientos, parallax ni animaciones automáticas; como mucho, un fundido corto.
 - Las animaciones no pueden bajar Lighthouse de 90 ni provocar saltos de diseño (CLS).
 
-## Publicación en Hostinger (si no es Netlify)
-`_redirects` y `_headers` solo funcionan en Netlify. En Hostinger se sube el contenido del repo a `public_html` (sin la carpeta `.git`) y se incluye un `.htaccess` con esta plantilla:
-
-    # No publicar archivos de trabajo
-    RedirectMatch 404 ^/(CLAUDE|README|BRIEF)\.md$
-    RedirectMatch 404 ^/\.(claude|git)(/|$)
-
-    <IfModule mod_headers.c>
-      # HTML: siempre fresco tras cada publicación
-      <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "no-cache, must-revalidate"
-      </FilesMatch>
-      # CSS, JS, imágenes y fuentes: 1 mes
-      <FilesMatch "\.(css|js|webp|avif|jpg|jpeg|png|svg|ico|woff2?)$">
-        Header set Cache-Control "public, max-age=2592000"
-      </FilesMatch>
-      Header always set X-Content-Type-Options "nosniff"
-      Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    </IfModule>
-
-    <IfModule mod_mime.c>
-      AddType image/webp .webp
-      AddType image/avif .avif
-      AddType font/woff2 .woff2
-    </IfModule>
-
-    <IfModule mod_deflate.c>
-      AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
-    </IfModule>
-
-    # Forzar HTTPS (activar cuando el dominio tenga SSL)
-    <IfModule mod_rewrite.c>
-      RewriteEngine On
-      RewriteCond %{HTTPS} !=on
-      RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-    </IfModule>
-
-    ErrorDocument 404 /404.html
-
-- Como los archivos no llevan hash en el nombre, tras cambiar CSS o JS añade `?v=AAAAMMDD` a sus enlaces en el HTML.
-- Publica con el conector oficial de Hostinger. Nunca subas a un subdominio público una demo privada sin confirmármelo antes.
-
-## Git y publicación
-- Cada web vive en su propio repositorio privado (`web-nombre`).
+## Git y publicación (Flanker Bar)
+- Repositorio: `souyahsamira-hue/Web-FLANKER` (público), rama `main`.
+- Netlify (proyecto `flanker-demo`) está conectado al repositorio y **publica automáticamente cada push a `main`** en https://flanker-demo.netlify.app. Todo push a `main` sale en vivo al momento.
 - Antes de editar, trae los últimos cambios (`git pull`).
 - Al terminar cualquier cambio: commit con un mensaje claro en español y push a `main`.
-- Si trabajas en una rama distinta, dímelo y dame el enlace del Pull Request.
+- Para cambios grandes o que deba ver el dueño antes de publicarse, trabaja en una rama, dímelo y dame el enlace del Pull Request.
+- No se usan `scripts/preparar-demo.sh`, `demo-netlify/`, el deploy manual con netlify-cli ni Hostinger. El `.htaccess` se conserva pero no se usa.
+- `_redirects` y `_headers` son los que mandan. Mantén en `_redirects` el 404 forzado (`404!`) para `/CLAUDE.md`, `/README.md`, `/BRIEF.md`, `/.claude/*` y `/.git/*`.
+- Como CSS y JS no llevan hash en el nombre, tras cambiarlos añade `?v=AAAAMMDD` a sus enlaces en el HTML.
 
 ## Cómo me hablas
 - En español de España, claro, cercano y sin tecnicismos innecesarios ni relleno. Trabajo a menudo desde el móvil.
